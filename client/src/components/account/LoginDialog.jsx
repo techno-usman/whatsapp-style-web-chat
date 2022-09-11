@@ -1,6 +1,8 @@
+import { useContext } from "react";
 import { Dialog, Box, Typography, List, ListItem, styled } from "@mui/material";
 import { GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
+import { AccountContext } from "../../context/AccountProvider";
 
 const Component = styled(Box)`
     display:flex;
@@ -19,18 +21,23 @@ const dialogStyle = {
     boxShadow: "none",
 };
 
-const onLoginSuccess = (response) => {
-    const decode = jwt_decode(response.credential);
-    console.log(decode);
-};
 
-const onLoginError = (response) => {
-    console.log(response);
-};
 
 const LoginDialog = () => {
+
+    const { setAccount } = useContext(AccountContext);
+
+    const onLoginSuccess = (response) => {
+        const decoded = jwt_decode(response.credential);
+        setAccount(decoded);
+    };
+
+    const onLoginError = (response) => {
+        console.log(response);
+    };
+
     return (
-        <Dialog open={true} PaperProps={{ sx: dialogStyle }}>
+        <Dialog open={true} PaperProps={{ sx: dialogStyle }} hideBackdrop={true}>
             <Component>
                 <Box>
                     <Title>To use Chat on your computer:</Title>
