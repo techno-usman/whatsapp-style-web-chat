@@ -1,7 +1,8 @@
 import { Box, styled } from '@mui/material';
 import { useContext } from 'react';
 import { AccountContext } from '../../../context/AccountProvider';
-import { Chat as MessageIcon, MoreVert } from '@mui/icons-material';
+import { Chat as MessageIcon } from '@mui/icons-material';
+import HeaderMoreVertMenu from './HeaderMoreVertMenu';
 
 const Component = styled(Box)`
     height:44px;
@@ -16,7 +17,6 @@ const ProfilePic = styled('img')({
     width: "40px",
     height: "40px",
     borderRadius: "50%"
-
 });
 
 const IconsWrapper = styled(Box)`
@@ -40,7 +40,7 @@ const Header = () => {
             <ProfilePic src={account.picture} alt="dp" />
             <IconsWrapper>
                 <MessageIcon />
-                <MoreVert />
+                <HeaderMoreVertMenu />
             </IconsWrapper>
         </Component>
     );
