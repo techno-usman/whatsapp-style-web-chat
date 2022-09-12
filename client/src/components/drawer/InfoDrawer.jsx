@@ -1,16 +1,14 @@
 import { Drawer, Typography, Box, styled } from '@mui/material';
 import { ArrowBack } from '@mui/icons-material';
+import Profile from './Profile';
 
 const drawerStyle = {
-    left: "20px",
-    top: "33px",
-    height: "95%",
-    width: "25vw",
+    width: "26vw",
     boxShadow: "none"
 };
 
 const Header = styled(Box)`
-    background:#008069;
+    background:#607EAA;
     color:#FFF;
     height:107px;
     display:flex;
@@ -19,6 +17,11 @@ const Header = styled(Box)`
         font-weight:600;
         padding:15px;
     } 
+`
+
+const Component = styled(Box)`
+    background:#ededed;
+    height:100%;
 `
 
 const InfoDrawer = ({ open, setOpen }) => {
@@ -38,6 +41,9 @@ const InfoDrawer = ({ open, setOpen }) => {
                 <ArrowBack onClick={() => { handleClose() }} />
                 <Typography>Profile</Typography>
             </Header>
+            <Component>
+                <Profile />
+            </Component>
         </Drawer>
     );
 };

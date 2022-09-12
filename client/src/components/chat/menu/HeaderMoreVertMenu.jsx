@@ -9,7 +9,7 @@ const MenuOption = styled(MenuItem)`
     padding:10px 40px;
 `
 
-const HeaderMoreVertMenu = () => {
+const HeaderMoreVertMenu = ({ setOpenDrawer }) => {
 
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
@@ -41,7 +41,7 @@ const HeaderMoreVertMenu = () => {
                 }}
 
             >
-                <MenuOption onClick={handleClose}>Profile</MenuOption>
+                <MenuOption onClick={() => { handleClose(); setOpenDrawer(true); }}>Profile</MenuOption>
             </Menu>
         </>
     );
