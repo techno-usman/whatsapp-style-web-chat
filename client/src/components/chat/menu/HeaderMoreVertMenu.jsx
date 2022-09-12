@@ -11,15 +11,15 @@ const MenuOption = styled(MenuItem)`
 
 const HeaderMoreVertMenu = () => {
 
-    const [open, setOpen] = useState(null);
-
+    const [anchorEl, setAnchorEl] = useState(null);
+    const open = Boolean(anchorEl);
 
     const handleClose = () => {
-        setOpen(null);
+        setAnchorEl(null);
     };
 
     const handleClick = (e) => {
-        setOpen(e.currentTarget);
+        setAnchorEl(e.currentTarget);
     };
 
     return (
@@ -28,11 +28,9 @@ const HeaderMoreVertMenu = () => {
 
             <Menu
                 id="basic-menu"
-                anchorEl={open}
-                keepMounted
+                anchorEl={anchorEl}
                 open={open}
                 onClose={handleClose}
-                getContentAnchorEl={null}
                 anchorOrigin={{
                     vertical: "bottom",
                     horizontal: "center"

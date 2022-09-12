@@ -22,6 +22,7 @@ const LoginHeader = styled(AppBar)`
 const Messenger = () => {
 
     const { account } = useContext(AccountContext);
+
     return (
         <Component>
             {
